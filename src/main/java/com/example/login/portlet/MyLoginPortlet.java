@@ -10,8 +10,10 @@ import org.osgi.service.component.annotations.Component;
 	immediate = true,
 	property = {
 		"com.liferay.portlet.display-category=category.sample",
-		"com.liferay.portlet.instanceable=true",
-		"javax.portlet.display-name=myLoginPortlet Portlet",
+		"com.liferay.portlet.instanceable=false",
+		"javax.portlet.name=MyLoginPortlet",
+		"javax.portlet.display-name=Sign In (Custom)",
+		"javax.portlet.init-param.add-process-action-success-action=false",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/view.jsp",
 		"javax.portlet.resource-bundle=content.Language",
