@@ -15,8 +15,19 @@
 	</c:when>
 	<c:otherwise>
 	
-		<aui:form action="" autocomplete='on' cssClass="sign-in-form" method="post" name="loginForm">
+		<%
+		String redirect = ParamUtil.getString(request, "redirect");
+		%>
+	
+		<portlet:actionURL name="/login/login" var="loginURL">
+			<portlet:param name="mvcRenderCommandName" value="/login/login" />
+		</portlet:actionURL>
 		
+		<aui:form action="<%= loginURL %>" autocomplete='on' cssClass="sign-in-form" method="post" name="loginForm">
+		
+			<aui:input name="saveLastPath" type="hidden" value="<%= false %>" />
+			<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
+					
 			<aui:input autoFocus="true" cssClass="clearable" label="email-address" name="login" showRequiredLabel="<%= false %>" type="text" value="">
 				<aui:validator name="required" />
 			</aui:input>
