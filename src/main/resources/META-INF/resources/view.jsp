@@ -9,6 +9,12 @@
 
 		<%
 		String signedInAs = HtmlUtil.escape(user.getFullName());
+
+		if (themeDisplay.isShowMyAccountIcon() && (themeDisplay.getURLMyAccount() != null)) {
+			String myAccountURL = String.valueOf(themeDisplay.getURLMyAccount());
+
+			signedInAs = "<a class=\"signed-in\" href=\"" + HtmlUtil.escape(myAccountURL) + "\">" + signedInAs + "</a>";
+		}
 		%>
 
 		<liferay-ui:message arguments="<%= signedInAs %>" key="you-are-signed-in-as-x" translateArguments="<%= false %>" />
